@@ -25,6 +25,10 @@ class Friend: Hashable, Equatable {
         name = newName
     }
     
+    func updateEmail (_ newEmail: String) {
+        emailAddress = newEmail
+    }
+    
     static func == (lhs: Friend, rhs: Friend) -> Bool {
         return lhs.name == rhs.name
     }

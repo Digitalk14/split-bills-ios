@@ -37,13 +37,17 @@ struct GroupView: View {
                     }
                 }
                 Spacer()
-                NavigationLink("Check calculations"){
-                    GroupCalculationsView(group: group)
+                NavigationLink(destination: GroupCalculationsView(group: group)){
+                    Text("Check calculations")
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue) // Background color for the NavigationLink
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 }
-                .padding()
-                .foregroundColor(.blue)
-                .font(.headline)
-                .cornerRadius(15)
+                Spacer()
+                
             }
             .navigationTitle(group.name)
             .toolbar{

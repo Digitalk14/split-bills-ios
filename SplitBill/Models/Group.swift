@@ -16,11 +16,13 @@ class Debt {
     var creditor: Friend
     var amount: Double
     var paid: Bool
-    init(debtor: Friend, creditor: Friend, amount: Double, paid: Bool = false) {
+    var groupName: String
+    init(debtor: Friend, creditor: Friend, amount: Double, paid: Bool = false, groupName: String) {
         self.debtor = debtor
         self.creditor = creditor
         self.amount = amount
         self.paid = paid
+        self.groupName = groupName
     }
     
     func updatePaidStatus() {
@@ -91,7 +93,7 @@ class Group {
             // Record the transaction
             transactions.append("\(debtor.name) owes \(formatCurrency(settlementAmount)) to \(creditor.name)")
             
-            let newDebt = Debt(debtor: debtor, creditor: creditor, amount: settlementAmount)
+            let newDebt = Debt(debtor: debtor, creditor: creditor, amount: settlementAmount, groupName: name)
             debts.append(newDebt)
             
             // Update balances
